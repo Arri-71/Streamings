@@ -1,4 +1,4 @@
-package co.edu.unisabana.pagos;
+package co.edu.unisabana.streamings;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

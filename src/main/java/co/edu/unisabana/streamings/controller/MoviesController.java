@@ -1,8 +1,6 @@
-package co.edu.unisabana.pagos.controller;
+package co.edu.unisabana.streamings.controller;
 
-import co.edu.unisabana.pagos.service.ClasePago;
-import co.edu.unisabana.pagos.service.Publicador;
-import org.springframework.beans.factory.annotation.Autowired;
+import co.edu.unisabana.streamings.service.Publicador;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,21 +10,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/")
 @RefreshScope
-public class PagoController {
+public class MoviesController {
 
     @Value("${propiedad1}")
     private String valor;
 
     private Publicador publicador;
 
-    public PagoController(Publicador publicador) {
+    public MoviesController(Publicador publicador) {
         this.publicador = publicador;
     }
 
-    @PostMapping("/pay")
-    public String pagar() {
-        Pago mensaje = new Pago(100, "01", "22");
+    @PostMapping("/publish")
+    public String publicar() {
+        movie mensaje = new movie("Harry Potter 7", "28-10-2010", "warnerbros");
         publicador.enviarMensajeTopico(mensaje);
-        return "Hola Mundo VOLVI MAS FUERTE " + valor;
+        return "Nueva pelicula añadida al catalogo " + valor;
     }
 }

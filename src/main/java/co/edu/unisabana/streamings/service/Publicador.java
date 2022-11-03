@@ -1,4 +1,4 @@
-package co.edu.unisabana.pagos.service;
+package co.edu.unisabana.streamings.service;
 
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;

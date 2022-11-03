@@ -1,4 +1,4 @@
-package co.edu.unisabana.pagos.service;
+package co.edu.unisabana.streamings.service;
 
 public class ClasePago implements Runnable {
     @Override

@@ -1,6 +1,6 @@
-package co.edu.unisabana.pagos.service;
+package co.edu.unisabana.streamings.service;
 
-import co.edu.unisabana.pagos.controller.Pago;
+import co.edu.unisabana.streamings.controller.movie;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.handler.annotation.Payload;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class Consumer {
 
     @RabbitListener(queues = "sabana.arquitectura2")
-    public void receive(@Payload Pago pago) {
+    public void receive(@Payload movie pago) {
         log.info("sabana.arquitectura2: {}", pago.getMonto());
 
         /**
@@ -27,7 +27,7 @@ public class Consumer {
     }
 
     @RabbitListener(queues = "unisabana.pagos.procesar")
-    public void receiv2e(@Payload Pago pago) {
+    public void receiv2e(@Payload movie pago) {
         log.info("Escuche de la cola unisabana.pagos.procesar {}", pago.getMonto());
     }
 
