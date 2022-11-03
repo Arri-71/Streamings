@@ -9,6 +9,6 @@ public class ConfiguracionPublicador {
 
     @Bean
     public Queue queue() {
-        return new Queue("pagosEjecutados", true);
+        return new Queue("PeliculasPublicadas", true);
     }
 }

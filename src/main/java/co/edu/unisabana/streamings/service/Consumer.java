@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class Consumer {
 
-    @RabbitListener(queues = "sabana.arquitectura2")
-    public void receive(@Payload movie pago) {
-        log.info("sabana.arquitectura2: {}", pago.getMonto());
+    @RabbitListener(queues = "Unisabana.peliculas.publicar")
+    public void receive(@Payload movie movies) {
+        log.info("Unisabana.peliculas.publicar: {}", movies.getNombrePelicula());
 
         /**
          * Esto de aca abajo simula que la escucha del mensaje se demora 10 segundos.
@@ -23,12 +23,12 @@ public class Consumer {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        log.info("Procesaimiento Terminado del mensaje: {}", pago);
+        log.info("Procesaimiento Terminado del mensaje: {}", movies);
     }
 
-    @RabbitListener(queues = "unisabana.pagos.procesar")
-    public void receiv2e(@Payload movie pago) {
-        log.info("Escuche de la cola unisabana.pagos.procesar {}", pago.getMonto());
+    @RabbitListener(queues = "unisabana.peliculas.procesar")
+    public void receiv2e(@Payload movie movies) {
+        log.info("Escuche de la cola unisabana.peliculas.procesar {}", movies.getNombrePelicula());
     }
 
 
